@@ -1,54 +1,53 @@
-✨ Features
-🔎 Search LinkedIn posts by keyword
-🔐 Require li_at session cookie
-👤 Extract author info (name, profile, bio)
-💬 Get post content
-👍 Collect likes & comments
-🖼️ Extract images/media
-📦 Export JSON / CSV via Apify Dataset
-⚙️ Input
+# 🚀 LinkedIn Posts Scraper (Pro Actor)
+
+Extract LinkedIn posts at scale using keyword search and authenticated sessions (`li_at` cookie).
+
+---
+
+## ⚡ Overview
+
+**LinkedIn Posts Scraper** is a high-performance Apify Actor designed to extract structured LinkedIn post data using keyword-based search with authenticated sessions.
+
+It is built for:
+
+- 📊 Data analysts  
+- 🧲 Growth hackers  
+- 👨‍💼 Recruiters  
+- 🧠 AI / LLM researchers  
+- 📈 Market intelligence teams  
+
+---
+
+## ✨ Key Features
+
+- 🔎 Keyword-based LinkedIn post search  
+- 🔐 Secure session authentication via `li_at` cookie  
+- 👤 Rich author profiling (name, headline, profile, bio)  
+- 💬 Full post content extraction  
+- 📊 Engagement metrics (likes, comments, reactions)  
+- 🖼️ Media extraction (images)  
+- 📦 Structured JSON / CSV output  
+- ⚡ Built with Playwright + Crawlee for stability and scale  
+
+---
+
+## 🚀 Why This Actor?
+
+Unlike basic scrapers, this actor is optimized for production use:
+
+- High-quality structured datasets ready for AI/analytics pipelines  
+- Stable crawling logic with session handling  
+- Adapted to real-world LinkedIn DOM changes  
+- Reduced detection footprint for better reliability  
+- Scalable execution on Apify infrastructure  
+
+---
+
+## ⚙️ Input Schema
+
+```json
 {
   "keyword": "AI",
   "maxPosts": 20,
   "linkedinCookie": "YOUR_li_at_COOKIE"
 }
-📥 Fields
-keyword (optional): search keyword
-maxPosts (optional): number of posts
-linkedinCookie (required): LinkedIn session cookie
-📤 Output
-{
-  "post": {
-    "content": "...",
-    "linkedinUrl": "..."
-  },
-  "author": {
-    "name": "John Doe",
-    "profileUrl": "...",
-    "info": "..."
-  },
-  "engagement": {
-    "likes": 120,
-    "comments": 15
-  },
-  "media": {
-    "images": ["..."]
-  }
-}
-🔐 How to get li_at
-
-LinkedIn → DevTools (F12) → Application → Cookies → li_at
-
-⚠️ Notes
-Requires valid LinkedIn login cookie
-May break if LinkedIn changes UI
-Use delay to avoid detection
-🧠 Tech Stack
-
-Node.js • Playwright • Crawlee • Apify SDK
-
-🚀 Use Cases
-Trend monitoring
-Lead research
-Social analytics
-Data pipelines
