@@ -1,0 +1,28 @@
+{
+  "title": "LinkedIn Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keyword": {
+      "type": "string",
+      "title": "Keyword",
+      "description": "Từ khóa tìm kiếm trên LinkedIn",
+      "default": "AI",
+      "editor": "textfield"
+    },
+    "maxPosts": {
+      "type": "integer",
+      "title": "Max Posts",
+      "description": "Số lượng bài viết muốn crawl",
+      "default": 20,
+      "editor": "number"
+    },
+    "linkedinCookie": {
+      "type": "string",
+      "title": "LinkedIn Cookie (li_at)",
+      "description": "Cookie đăng nhập LinkedIn (bắt buộc)",
+      "editor": "textfield"
+    }
+  },
+  "required": ["linkedinCookie"]
+}

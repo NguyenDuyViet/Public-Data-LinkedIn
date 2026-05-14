@@ -1,0 +1,7 @@
+{
+  "actorSpecification": 1,
+  "name": "public-data-linkedin",
+  "version": "0.0",
+
+  "dockerfile": "./Dockerfile"
+}

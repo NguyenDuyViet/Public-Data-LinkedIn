@@ -1,0 +1,15 @@
+{
+  "name": "public-data-linkedin",
+  "version": "1.0.0",
+  "type": "module",
+
+  "scripts": {
+    "start": "node src/main.js"
+  },
+
+  "dependencies": {
+    "apify": "^3.7.2",
+    "crawlee": "^3.16.0",
+    "playwright": "^1.60.0"
+  }
+}
