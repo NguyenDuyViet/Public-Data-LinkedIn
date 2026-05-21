@@ -1,27 +1,91 @@
 {
-  "title": "LinkedIn Scraper Input",
+  "title": "LinkedIn Public Data Input",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "keyword": {
+    "linkPost": {
       "type": "string",
-      "title": "Keyword",
-      "description": "Từ khóa tìm kiếm trên LinkedIn",
+      "title": "LinkedIn post URL",
+      "description": "Optional. Use this when you want to crawl one specific LinkedIn post URL.",
+      "editor": "textfield"
+    },
+    "searchQuery": {
+      "type": "string",
+      "title": "Search query",
+      "description": "Keyword query for LinkedIn post search, for example: AI hiring, data analyst, SaaS marketing.",
       "default": "AI",
       "editor": "textfield"
     },
+    "hashtags": {
+      "type": "array",
+      "title": "Hashtags",
+      "description": "Optional hashtags to include in the LinkedIn post search. Use values with or without #.",
+      "editor": "stringList",
+      "prefill": ["AI", "LinkedIn"],
+      "items": {
+        "type": "string"
+      }
+    },
     "maxPosts": {
       "type": "integer",
-      "title": "Max Posts",
-      "description": "Số lượng bài viết muốn crawl",
+      "title": "Max posts",
+      "description": "Maximum number of posts to extract from search results.",
       "default": 20,
+      "minimum": 1,
+      "maximum": 100,
       "editor": "number"
+    },
+    "sortBy": {
+      "type": "string",
+      "title": "Sort by",
+      "description": "LinkedIn search sorting mode.",
+      "default": "relevance",
+      "editor": "select",
+      "enum": ["relevance", "date_posted"],
+      "enumTitles": ["Relevance", "Latest"]
+    },
+    "datePosted": {
+      "type": "string",
+      "title": "Date posted",
+      "description": "Filter posts by publish date.",
+      "default": "anytime",
+      "editor": "select",
+      "enum": ["anytime", "past-24h", "past-week", "past-month"],
+      "enumTitles": ["Any time", "Past 24 hours", "Past week", "Past month"]
+    },
+    "fromMember": {
+      "type": "array",
+      "title": "Filter by member IDs",
+      "description": "Optional LinkedIn member IDs to filter authors. Example: ACoAAxxxxxx.",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fromCompany": {
+      "type": "array",
+      "title": "Filter by company IDs",
+      "description": "Optional LinkedIn company IDs to filter posts by company.",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorIndustry": {
+      "type": "array",
+      "title": "Filter by author industry IDs",
+      "description": "Optional LinkedIn industry IDs to filter post authors.",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      }
     },
     "linkedinCookie": {
       "type": "string",
-      "title": "LinkedIn Cookie (li_at)",
-      "description": "Cookie đăng nhập LinkedIn (bắt buộc)",
-      "editor": "textfield"
+      "title": "LinkedIn cookie",
+      "description": "Required. Paste either the raw li_at value or the full LinkedIn cookie string from your browser.",
+      "editor": "textarea",
+      "isSecret": true
     }
   },
   "required": ["linkedinCookie"]
